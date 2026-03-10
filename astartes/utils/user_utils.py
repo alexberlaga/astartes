@@ -1,9 +1,10 @@
 import sklearn
-from sklearn.metrics import mean_absolute_error, r2_score, root_mean_squared_error
+from sklearn.metrics import mean_absolute_error, r2_score, mean_squared_error
 from tabulate import tabulate
 
 import astartes
-
+import numpy as np
+root_mean_squared_error = lambda y_true, y_pred, **kw: np.sqrt(mean_squared_error(y_true, y_pred, **kw))
 
 def generate_regression_results_dict(
     sklearn_model,
